@@ -1,15 +1,19 @@
 const express = require('express')
-const cors = require('cors')
 const BodyBuilder = require('./src/bodybuilder/bodybuilder.entity')
 const Style = require('./src/estilo/style.entity')
 const app = express()
+const cors = require('cors');
+
 const corsOptions = {
-  origin: 'https://crud-fatec.vercel.app', // Domínio do front-end
-  methods: ['GET', 'POST', 'PUT', 'DELETE'], // Métodos permitidos
-  allowedHeaders: ['Content-Type'], // Cabeçalhos permitidos
+    origin: 'https://crud-fatec.vercel.app',  // Substitua com o URL do seu front-end
+    methods: ['GET', 'POST', 'PUT', 'DELETE'],  // Métodos que você está utilizando
+    allowedHeaders: ['Content-Type'],  // Cabeçalhos que você está utilizando
+    preflightContinue: false,  // Não continua a requisição preflight automaticamente
+    optionsSuccessStatus: 204  // Evitar erro 200 em algumas requisições preflight
 };
 
 app.use(cors(corsOptions));
+
 
 const PORT = process.env.PORT || 3000;
 app.use(express.json())
