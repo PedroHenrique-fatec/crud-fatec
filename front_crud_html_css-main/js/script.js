@@ -1,9 +1,10 @@
-// Falso banco de dados de clientes, em memória RAM
+// Variáveis globais
 var clientes = [];
 var academias = [];
 var estilos = [];
 
-const url = "https:/url + /"
+// URL do backend
+const url = "https://crud-fatec-production.up.railway.app";
 
 // Guarda o cliente que está sendo alterado
 var clienteAlterado = null;
@@ -65,7 +66,6 @@ async function salvarStyle() {
         id: Date.now(),
         nome: style
     };
-    console.log('oi')
 
     try {
         await fetch(url + "/stylePost", {
@@ -77,16 +77,14 @@ async function salvarStyle() {
         alert("Style cadastrado com sucesso");
         await carregarEstilos();
     } catch (error) {
-        alert('Ocorreu um erro');
+        alert('Erro ao cadastrar estilo');
     }
 
     limparFormularioStyle();
-
     return false;
 }
 
 async function salvar() {
-    console.log('Salvando cliente...')
     let nome = document.getElementById("nome").value;
     let cpf = document.getElementById("cpf").value;
     let peso = document.getElementById("peso").value;
@@ -116,7 +114,6 @@ async function salvar() {
                 mode: 'cors',
                 body: JSON.stringify(novoBodyBuilder)
             });
-            console.log('oi')
             alert("Cadastrado com sucesso");
         } else {
             // Alterar cliente existente
@@ -177,14 +174,12 @@ function atualizarLista() {
 async function carregarClientes() {
     let busca = document.getElementById("busca").value;
     try {
-        console.log('Teste')
         let response = await fetch(url + '/body-builder?busca=' + busca, {
             method: 'GET',
             headers: { 'Content-Type': 'application/json' },
             mode: 'cors'
         });
         clientes = await response.json();
-        console.log(clientes)
         atualizarLista();
     } catch (error) {
         alert("Erro ao listar clientes");
@@ -193,7 +188,6 @@ async function carregarClientes() {
 
 async function carregarAcademias() {
     try {
-        console.log('Teste')
         let response = await fetch(url + '/gym', {
             method: 'GET',
             headers: { 'Content-Type': 'application/json' },
@@ -208,6 +202,7 @@ async function carregarAcademias() {
 
 function atualizarListaAcademias() {
     let listaAcademia = document.getElementById("academia");
+    listaAcademia.innerHTML = ""; // Limpa as opções existentes
     for (let academia of academias) {
         let option = document.createElement("option");
         option.value = academia.id;
@@ -218,7 +213,6 @@ function atualizarListaAcademias() {
 
 async function carregarEstilos() {
     try {
-        console.log('Teste')
         let response = await fetch(url + '/style', {
             method: 'GET',
             headers: { 'Content-Type': 'application/json' },
@@ -233,6 +227,7 @@ async function carregarEstilos() {
 
 function atualizarListaEstilos() {
     let listaEstilo = document.getElementById("estilo");
+    listaEstilo.innerHTML = ""; // Limpa as opções existentes
     for (let estilo of estilos) {
         let option = document.createElement("option");
         option.value = estilo.id;
