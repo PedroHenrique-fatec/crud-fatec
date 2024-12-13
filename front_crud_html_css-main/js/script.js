@@ -3,6 +3,8 @@ var clientes = [];
 var academias = [];
 var estilos = [];
 
+const url = "https:/url + /"
+
 // Guarda o cliente que está sendo alterado
 var clienteAlterado = null;
 
@@ -43,7 +45,7 @@ function alterar(cpf) {
 async function excluir(cpf) {
     if (confirm("Deseja realmente excluir este body builder?")) {
         try {
-            await fetch('crud-fatec-production.up.railway.app/body-builder/' + cpf, {
+            await fetch(url + '/body-builder/' + cpf, {
                 method: 'DELETE',
                 headers: { 'Content-Type': 'application/json' },
                 mode: 'cors'
@@ -66,7 +68,7 @@ async function salvarStyle() {
     console.log('oi')
 
     try {
-        await fetch("crud-fatec-production.up.railway.app/stylePost", {
+        await fetch(url + "/stylePost", {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             mode: 'cors',
@@ -108,7 +110,7 @@ async function salvar() {
     try {
         if (clienteAlterado == null) {
             // Adicionar novo cliente
-            await fetch('crud-fatec-production.up.railway.app/body-builder', {
+            await fetch(url + '/body-builder', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 mode: 'cors',
@@ -118,7 +120,7 @@ async function salvar() {
             alert("Cadastrado com sucesso");
         } else {
             // Alterar cliente existente
-            await fetch('crud-fatec-production.up.railway.app/body-builder/' + clienteAlterado.cpf, {
+            await fetch(url + '/body-builder/' + clienteAlterado.cpf, {
                 method: 'PUT',
                 headers: { 'Content-Type': 'application/json' },
                 mode: 'cors',
@@ -176,7 +178,7 @@ async function carregarClientes() {
     let busca = document.getElementById("busca").value;
     try {
         console.log('Teste')
-        let response = await fetch('crud-fatec-production.up.railway.app/body-builder?busca=' + busca, {
+        let response = await fetch(url + '/body-builder?busca=' + busca, {
             method: 'GET',
             headers: { 'Content-Type': 'application/json' },
             mode: 'cors'
@@ -192,7 +194,7 @@ async function carregarClientes() {
 async function carregarAcademias() {
     try {
         console.log('Teste')
-        let response = await fetch('crud-fatec-production.up.railway.app/gym', {
+        let response = await fetch(url + '/gym', {
             method: 'GET',
             headers: { 'Content-Type': 'application/json' },
             mode: 'cors'
@@ -217,7 +219,7 @@ function atualizarListaAcademias() {
 async function carregarEstilos() {
     try {
         console.log('Teste')
-        let response = await fetch('crud-fatec-production.up.railway.app/style', {
+        let response = await fetch(url + '/style', {
             method: 'GET',
             headers: { 'Content-Type': 'application/json' },
             mode: 'cors'
