@@ -182,6 +182,7 @@ async function carregarClientes() {
             mode: 'cors'
         });
         clientes = await response.json();
+        console.log(clientes)
         atualizarLista();
     } catch (error) {
         alert("Erro ao listar clientes");
