@@ -17,13 +17,13 @@
         <thead>
             <tr>
                 <th>Academia</th>
-                <th>estilo</th>
                 <th>CPF</th>
                 <th>Nome</th>
                 <th>Peso</th>
                 <th>Altura</th>
                 <th>Data de Nascimento</th>
                 <th>Sapato</th>
+                <th>estilo</th>
                 <th>Ações</th>
             </tr>
         </thead>
@@ -31,6 +31,15 @@
             
         </tbody>
     </table>
+
+    <div class="modal-style">
+        <form onsubmit="return salvarStyle()">
+            <label for="style">Insira um estilo:</label>
+            <input type="text" id="style" name="style">
+
+            <input type="submit" value="Salvar estilo" name="salvar">
+        </form>
+    </div>
 
     <div id="modal">
         <button onclick="ocultarModal()">Fechar</button>

@@ -1,6 +1,7 @@
 const express = require('express')
 const cors = require('cors')
 const BodyBuilder = require('./src/bodybuilder/bodybuilder.entity')
+const Style = require('./src/estilo/style.entity')
 const app = express()
 app.use(cors())
 const port = 3000
@@ -14,10 +15,7 @@ var academias = [
   { id: 2, nome: "Academia 2", telefone: "987654321" }
 ]
 
-var estilos = [
-  { id: 1, nome: "Chassi de grilo" },
-  { id: 2, nome: "Capa do batman" }
-]
+var estilos = []
 
 app.post('/body-builder', (req, res) => {
     const data = req.body //receber o bodyBuilder, que é um objeto JSON que vem do front-end
@@ -51,6 +49,7 @@ app.put('/body-builder/:cpf', (req, res) => {
       clientes[i] = bodyBuilder
       //substitui o bodyBuilder pelos dados enviados no body
       res.send("Atualizou")
+      return
     }
   }
   throw new Error("Body builder nao encontrado")
@@ -88,6 +87,16 @@ app.get("/gym", (req, res) => {
 
 app.get("/style", (req, res) => {
   res.json(estilos)
+})
+
+app.post('/stylePost', (req, res) => {
+  let data = req.body
+
+  let estilo = new Style(data.id, data.nome)
+
+  estilos.push(estilo);
+
+  res.send("Cadastro realizado com sucesso")
 })
 
 app.listen(port, () => {
