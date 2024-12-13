@@ -83,6 +83,7 @@ async function salvarStyle() {
 }
 
 async function salvar() {
+    console.log('Salvando cliente...')
     let nome = document.getElementById("nome").value;
     let cpf = document.getElementById("cpf").value;
     let peso = document.getElementById("peso").value;
