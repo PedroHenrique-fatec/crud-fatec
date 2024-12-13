@@ -79,6 +79,7 @@ app.delete('/body-builder/:cpf', (req, res) => {
 })
 
 app.get('/body-builder', (req, res) => {
+  console.log("teste")
   let busca = req.query.busca
   let clientesFiltrados
   if (busca){ //se a busca for diferente de vazio
