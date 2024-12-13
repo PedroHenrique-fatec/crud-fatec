@@ -43,7 +43,7 @@ function alterar(cpf) {
 async function excluir(cpf) {
     if (confirm("Deseja realmente excluir este body builder?")) {
         try {
-            await fetch('https://crud-fatec.onrender.com/body-builder/' + cpf, {
+            await fetch('crud-fatec-production.up.railway.app/body-builder/' + cpf, {
                 method: 'DELETE',
                 headers: { 'Content-Type': 'application/json' },
                 mode: 'cors'
@@ -66,7 +66,7 @@ async function salvarStyle() {
     console.log('oi')
 
     try {
-        await fetch("https://crud-fatec.onrender.com/stylePost", {
+        await fetch("crud-fatec-production.up.railway.app/stylePost", {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             mode: 'cors',
@@ -108,7 +108,7 @@ async function salvar() {
     try {
         if (clienteAlterado == null) {
             // Adicionar novo cliente
-            await fetch('https://crud-fatec.onrender.com/body-builder', {
+            await fetch('crud-fatec-production.up.railway.app/body-builder', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 mode: 'cors',
@@ -118,7 +118,7 @@ async function salvar() {
             alert("Cadastrado com sucesso");
         } else {
             // Alterar cliente existente
-            await fetch('https://crud-fatec.onrender.com/body-builder/' + clienteAlterado.cpf, {
+            await fetch('crud-fatec-production.up.railway.app/body-builder/' + clienteAlterado.cpf, {
                 method: 'PUT',
                 headers: { 'Content-Type': 'application/json' },
                 mode: 'cors',
@@ -176,7 +176,7 @@ async function carregarClientes() {
     let busca = document.getElementById("busca").value;
     try {
         console.log('Teste')
-        let response = await fetch('https://crud-fatec.onrender.com/body-builder?busca=' + busca, {
+        let response = await fetch('crud-fatec-production.up.railway.app/body-builder?busca=' + busca, {
             method: 'GET',
             headers: { 'Content-Type': 'application/json' },
             mode: 'cors'
@@ -192,7 +192,7 @@ async function carregarClientes() {
 async function carregarAcademias() {
     try {
         console.log('Teste')
-        let response = await fetch('https://crud-fatec.onrender.com/gym', {
+        let response = await fetch('crud-fatec-production.up.railway.app/gym', {
             method: 'GET',
             headers: { 'Content-Type': 'application/json' },
             mode: 'cors'
@@ -217,7 +217,7 @@ function atualizarListaAcademias() {
 async function carregarEstilos() {
     try {
         console.log('Teste')
-        let response = await fetch('https://crud-fatec.onrender.com/style', {
+        let response = await fetch('crud-fatec-production.up.railway.app/style', {
             method: 'GET',
             headers: { 'Content-Type': 'application/json' },
             mode: 'cors'
