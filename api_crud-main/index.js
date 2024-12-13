@@ -4,7 +4,7 @@ const BodyBuilder = require('./src/bodybuilder/bodybuilder.entity')
 const Style = require('./src/estilo/style.entity')
 const app = express()
 app.use(cors())
-const port = 3000
+const PORT = process.env.PORT || 3000;
 app.use(express.json())
 
 //banco de dados de clientes
@@ -99,6 +99,6 @@ app.post('/stylePost', (req, res) => {
   res.send("Cadastro realizado com sucesso")
 })
 
-app.listen(port, () => {
-  console.log(`Example app listening on port ${port}`)
+app.listen(PORT, () => {
+  console.log(`Example app listening on port ${PORT}`)
 })
