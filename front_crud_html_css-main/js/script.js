@@ -175,6 +175,7 @@ function atualizarLista() {
 async function carregarClientes() {
     let busca = document.getElementById("busca").value;
     try {
+        console.log('Teste')
         let response = await fetch('https://crud-fatec.onrender.com/body-builder?busca=' + busca, {
             method: 'GET',
             headers: { 'Content-Type': 'application/json' },
@@ -189,6 +190,7 @@ async function carregarClientes() {
 
 async function carregarAcademias() {
     try {
+        console.log('Teste')
         let response = await fetch('https://crud-fatec.onrender.com/gym', {
             method: 'GET',
             headers: { 'Content-Type': 'application/json' },
@@ -213,6 +215,7 @@ function atualizarListaAcademias() {
 
 async function carregarEstilos() {
     try {
+        console.log('Teste')
         let response = await fetch('https://crud-fatec.onrender.com/style', {
             method: 'GET',
             headers: { 'Content-Type': 'application/json' },
