@@ -63,6 +63,7 @@ async function salvarStyle() {
         id: Date.now(),
         nome: style
     };
+    console.log('oi')
 
     try {
         await fetch("https://crud-fatec.onrender.com/stylePost", {
@@ -113,6 +114,7 @@ async function salvar() {
                 mode: 'cors',
                 body: JSON.stringify(novoBodyBuilder)
             });
+            console.log('oi')
             alert("Cadastrado com sucesso");
         } else {
             // Alterar cliente existente
