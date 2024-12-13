@@ -3,7 +3,14 @@ const cors = require('cors')
 const BodyBuilder = require('./src/bodybuilder/bodybuilder.entity')
 const Style = require('./src/estilo/style.entity')
 const app = express()
-app.use(cors())
+const corsOptions = {
+  origin: 'https://crud-fatec.vercel.app', // Domínio do front-end
+  methods: ['GET', 'POST', 'PUT', 'DELETE'], // Métodos permitidos
+  allowedHeaders: ['Content-Type'], // Cabeçalhos permitidos
+};
+
+app.use(cors(corsOptions));
+
 const PORT = process.env.PORT || 3000;
 app.use(express.json())
 
