@@ -111,6 +111,8 @@ app.post('/stylePost', (req, res) => {
   res.send("Cadastro realizado com sucesso")
 })
 
+console.log('Backend está sendo iniciado...');
+
 app.listen(PORT, () => {
   console.log(`Example app listening on port ${PORT}`)
 })
