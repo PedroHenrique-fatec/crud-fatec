@@ -5,11 +5,11 @@ const app = express()
 const cors = require('cors');
 
 const corsOptions = {
-    origin: 'https://crud-fatec.vercel.app',  // Substitua com o URL do seu front-end
-    methods: ['GET', 'POST', 'PUT', 'DELETE'],  // Métodos que você está utilizando
-    allowedHeaders: ['Content-Type'],  // Cabeçalhos que você está utilizando
-    preflightContinue: false,  // Não continua a requisição preflight automaticamente
-    optionsSuccessStatus: 204  // Evitar erro 200 em algumas requisições preflight
+  origin: 'https://crud-fatec.vercel.app',  // URL do seu front-end
+  methods: ['GET', 'POST', 'PUT', 'DELETE'],
+  allowedHeaders: ['Content-Type', 'Authorization'],  // Ajuste conforme necessário
+  preflightContinue: false,
+  optionsSuccessStatus: 204
 };
 
 app.use(cors(corsOptions));
