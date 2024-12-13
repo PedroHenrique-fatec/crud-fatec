@@ -93,6 +93,8 @@ app.get('/body-builder', (req, res) => {
   res.json(clientesFiltrados)
 })
 
+console.log(teste)
+
 app.get("/gym", (req, res) => {
   res.json(academias)
 })
