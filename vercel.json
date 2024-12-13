@@ -1,6 +1,6 @@
 {
     "rewrites": [
-      { "source": "/(.*)", "destination": "/index.html" }
+      { "source": "/(.*)", "destination": "../front_crud_html_css-main/index.html" }
     ]
   }
   
